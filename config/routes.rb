@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   root 'dashboard#show'
   get 'dashboard/show'
 
+  post 'dashboard/add'
+  post 'dashboard/update' => 'dashboard#update'
+  post 'dashboard/delete' => 'dashboard#delete'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

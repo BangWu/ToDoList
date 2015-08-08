@@ -1,0 +1,12 @@
+.col-md-12.item{data: todo.id}
+  .col-md-2= todo.id
+  .col-md-2= todo.title
+  .col-md-2= todo.text
+  .col-md-2
+    .checkbox
+      %label
+        %input.todo-status{type: "checkbox", checked: todo.status}
+  .col-md-2
+    %button.btn.btn-primary.edit-todo{data: {target: "#edit-todo", toggle: "modal",id: todo.id, title: todo.title,text: todo.text}, :type => "button"} Edit
+  .col-md-2
+    %button.btn.btn-primary.delete-todo{data: {target: "#delete-todo", toggle: "modal", id: todo.id}, :type => "button"} Delete

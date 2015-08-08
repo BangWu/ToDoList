@@ -22,10 +22,15 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+# add the bootstrap to the project
+gem 'bootstrap-sass', '~> 3.3.5'
+# add the haml tool to the project
+gem 'haml', '~> 4.0.6'
+gem 'bindings', '~> 0.9'
+gem 'pry-rails', '~> 0.3.4'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'draper', '~> 1.4.0'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -35,6 +40,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'pry-byebug'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

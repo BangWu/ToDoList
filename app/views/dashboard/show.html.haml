@@ -1,0 +1,74 @@
+.col-md-12
+  #add-to-do
+    .col-md-1
+    .col-md-11
+      .form-inline
+        .form-group
+          %label title
+          %input#todo-title.form-control{name: 'title'}
+        .form-group
+          %label text
+          %input#todo-text.form-control{name: 'text'}
+        %button#add-todo.btn.btn-default ADD
+.col-md-12
+  #lists
+    .col-md-1
+    #to-do-list.col-md-4
+      .col-md-12
+        .col-md-2 ID
+        .col-md-2 TITLE
+        .col-md-2 TEXT
+        .col-md-2 STATUS
+        .col-md-2 Edit
+        .col-md-2 Delete
+      - @todos.each do |todo|
+        =render partial: 'dashboard/item', locals:  {todo: todo}
+    .col-md-2
+    #to-done-list.col-md-4
+      .col-md-12
+        .col-md-2 ID
+        .col-md-2 TITLE
+        .col-md-2 TEXT
+        .col-md-2 STATUS
+        .col-md-2 Edit
+        .col-md-2 Delete
+      - @todones.each do |todo|
+        =render partial: 'dashboard/item', locals:  {todo: todo}
+.col-md-12
+  #edit-todo.modal.fade{"aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog{:role => "document"}
+      .modal-content
+        .modal-header
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+          %h4#exampleModalLabel.modal-title Edit todo
+        .modal-body
+          .form-group
+            %input.hidden#edit-id.form-control{:type => "text"}
+          .form-group
+            %label.control-label{:for => "edit-title"} title:
+            %input#edit-title.form-control{:type => "text"}
+          .form-group
+            %label.control-label{:for => "edit-text"} text:
+            %textarea#edit-text.form-control
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+          %button#edit-todo-save.btn.btn-primary{"data-dismiss" => "modal",:type => "button"} Save
+.col-md-12
+  #delete-todo.modal.fade{"aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog{:role => "document"}
+      .modal-content
+        .modal-header
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+          %h4#exampleModalLabel.modal-title Delete todo
+        .modal-body
+          %p Are You Sure You want to delete this Todo Item
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+          %button#delete-todo-save.btn.btn-primary{"data-dismiss" => "modal",:type => "button"} Delete
+
+%link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css", :rel => "stylesheet"}/
+%link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css", :rel => "stylesheet"}/
+%script{:src => "http://code.jquery.com/jquery-2.1.4.min.js"}
+%script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"}
