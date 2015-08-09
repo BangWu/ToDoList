@@ -53,7 +53,6 @@ $(document).ready ->
           item = $.parseHTML(data.item)[0]
           $(item).find(".todo-status").change ->
             updateTodoStatus(this)
-          debugger
           $(@button.closest(".item")).replaceWith(item)
     )
 
