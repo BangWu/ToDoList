@@ -1,7 +1,9 @@
 .col-md-12.item{data: todo.id}
   .col-md-2= todo.id
-  .col-md-2= todo.title
-  .col-md-2= todo.text
+  .col-md-2
+    %p= todo.title
+  .col-md-2
+    %p= todo.text
   .col-md-2
     .checkbox
       %label
